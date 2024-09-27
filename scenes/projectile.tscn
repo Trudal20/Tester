@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwsuruarjo3kh"]
+
+[ext_resource type="Texture2D" uid="uid://dhrwjjx237ilv" path="res://art/particles/dust_particles_01.png" id="1_0kwup"]
+[ext_resource type="Script" path="res://scenes/projectile.gd" id="1_yxe43"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0x87"]
+atlas = ExtResource("1_0kwup")
+region = Rect2(0, 0, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21xob"]
+atlas = ExtResource("1_0kwup")
+region = Rect2(13, 0, 13, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lwg5"]
+atlas = ExtResource("1_0kwup")
+region = Rect2(26, 0, 13, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ay25c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0x87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21xob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lwg5")
+}],
+"loop": true,
+"name": &"Arrow",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gqbys"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hd6am"]
+radius = 1.41421
+
+[node name="projectile" type="CharacterBody2D"]
+script = ExtResource("1_yxe43")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_ay25c")
+animation = &"Arrow"
+frame_progress = 0.832487
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_gqbys")
+
+[node name="projectile_hitbox" type="Area2D" parent="."]
+position = Vector2(24, 35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="projectile_hitbox"]
+position = Vector2(-24, -36)
+shape = SubResource("CircleShape2D_hd6am")
