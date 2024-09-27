@@ -48,6 +48,24 @@ sprite_frames = SubResource("SpriteFrames_ay25c")
 animation = &"Arrow"
 frame_progress = 0.832487
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_ay25c")
+animation = &"Arrow"
+frame_progress = 0.832487
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_ay25c")
+animation = &"Arrow"
+frame_progress = 0.832487
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D/AnimatedSprite2D/AnimatedSprite2D"]
+position = Vector2(15, 1)
+sprite_frames = SubResource("SpriteFrames_ay25c")
+animation = &"Arrow"
+frame_progress = 0.832487
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_gqbys")
 
